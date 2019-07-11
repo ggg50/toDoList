@@ -4,8 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "build": "webpack"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,13 @@
   },
   "homepage": "https://github.com/ggg50/toDoList#readme",
   "dependencies": {
-    "lodash": "^4.17.14"
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.14",
+    "mini-css-extract-plugin": "^0.7.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "webpack-merge": "^4.2.1"
   },
   "devDependencies": {
     "webpack": "^4.35.3",
