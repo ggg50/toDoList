@@ -1,0 +1,27 @@
+{
+  "name": "toDoList",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggg50/toDoList.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ggg50/toDoList/issues"
+  },
+  "homepage": "https://github.com/ggg50/toDoList#readme",
+  "dependencies": {
+    "lodash": "^4.17.14"
+  },
+  "devDependencies": {
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  }
+}
