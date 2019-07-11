@@ -4,8 +4,11 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "pro": "webpack -p",
+    "start": "webpack-dev-server --open",
+    "dev": "webpack --progress --watch"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,7 @@
   },
   "devDependencies": {
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   }
 }
