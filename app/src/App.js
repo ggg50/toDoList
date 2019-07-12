@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import TodoInput from './todoInput';
 import TodoItem from './todoItem';
 import 'normalize.css';
+import './reset.css';
 import './App.css';
 
 class App extends React.Component{
@@ -11,7 +12,9 @@ class App extends React.Component{
     this.state = {
       newTodo: "test",
       todoList: [
-        {id: 1, title: "First events"}
+        {id: 1, title: "First events"},
+        {id: 2, title: "Second events"},
+        {id: 3, title: "Third events"},
       ]
     }
   }
