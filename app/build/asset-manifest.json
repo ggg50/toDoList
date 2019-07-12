@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/toDoList/app/public/static/css/main.2cce8147.chunk.css",
-    "main.js": "/toDoList/app/public/static/js/main.220c71b4.chunk.js",
-    "main.js.map": "/toDoList/app/public/static/js/main.220c71b4.chunk.js.map",
-    "runtime~main.js": "/toDoList/app/public/static/js/runtime~main.35970daf.js",
-    "runtime~main.js.map": "/toDoList/app/public/static/js/runtime~main.35970daf.js.map",
-    "static/js/2.b41502e9.chunk.js": "/toDoList/app/public/static/js/2.b41502e9.chunk.js",
-    "static/js/2.b41502e9.chunk.js.map": "/toDoList/app/public/static/js/2.b41502e9.chunk.js.map",
-    "index.html": "/toDoList/app/public/index.html",
-    "precache-manifest.0db8eb8bd5aaa9e8b6b8c161c193d564.js": "/toDoList/app/public/precache-manifest.0db8eb8bd5aaa9e8b6b8c161c193d564.js",
-    "service-worker.js": "/toDoList/app/public/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/toDoList/app/public/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/toDoList/app/public/static/media/logo.5d5d9eef.svg"
+    "main.css": "/toDoList/app/build/static/css/main.2cce8147.chunk.css",
+    "main.js": "/toDoList/app/build/static/js/main.350ed543.chunk.js",
+    "main.js.map": "/toDoList/app/build/static/js/main.350ed543.chunk.js.map",
+    "runtime~main.js": "/toDoList/app/build/static/js/runtime~main.3b6bcd1e.js",
+    "runtime~main.js.map": "/toDoList/app/build/static/js/runtime~main.3b6bcd1e.js.map",
+    "static/js/2.b41502e9.chunk.js": "/toDoList/app/build/static/js/2.b41502e9.chunk.js",
+    "static/js/2.b41502e9.chunk.js.map": "/toDoList/app/build/static/js/2.b41502e9.chunk.js.map",
+    "index.html": "/toDoList/app/build/index.html",
+    "precache-manifest.de159dee63ed93093431e4f4f9133c32.js": "/toDoList/app/build/precache-manifest.de159dee63ed93093431e4f4f9133c32.js",
+    "service-worker.js": "/toDoList/app/build/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/toDoList/app/build/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/toDoList/app/build/static/media/logo.5d5d9eef.svg"
   }
 }

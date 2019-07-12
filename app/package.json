@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "homepage": "https://ggg50.github.io/toDoList/app/public/",
+  "homepage": "https://ggg50.github.io/toDoList/app/build/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
