@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoInput from './todoInput';
 import TodoItem from './todoItem';
+import 'normalize.css';
 import './App.css';
 
 class App extends React.Component{
