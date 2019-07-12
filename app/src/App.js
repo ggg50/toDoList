@@ -4,6 +4,8 @@ import TodoInput from './todoInput';
 import TodoItem from './todoItem';
 import 'normalize.css';
 import './reset.css';
+import './todoItem.css';
+import './todoInput.css';
 import './App.css';
 
 class App extends React.Component{
@@ -31,8 +33,8 @@ class App extends React.Component{
     return (
       <div className="App">
         <h1>我的代办</h1>
-        <TodoInput content={this.state.newTodo} onSubmit={this.addTodo.bind(this)} />
-        <ul>{todos}</ul>
+          <TodoInput content={this.state.newTodo} onSubmit={this.addTodo.bind(this)} />
+        <ul className="todoList">{todos}</ul>
       </div>
     )
   }

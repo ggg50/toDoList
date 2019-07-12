@@ -5,7 +5,7 @@ class TodoInput extends React.Component{
     super(props);
   }
   render () {
-    return <input type="text" defaultValue={this.props.content}
+    return <input type="text" className="todoInput" defaultValue={this.props.content}
     onKeyPress={this.submit.bind(this)}/>
   }
 
