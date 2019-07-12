@@ -22,14 +22,14 @@ class App extends React.Component{
     let todos = this.state.todoList.map(todo => {
       return (
         <li key={todo.id}>
-          <TodoItem item={todo} onToggle={this.toggle.bind(this)}/>
+          <TodoItem item={todo} onToggle={this.toggle.bind(this)} onDelete={this.delete.bind(this)}/>
         </li>
       )
     })
     return (
       <div className="App">
         <h1>我的代办</h1>
-        <TodoInput content={this.state.newTodo} onSubmit={this.addTodo.bind(this)}/>
+        <TodoInput content={this.state.newTodo} onSubmit={this.addTodo.bind(this)} />
         <ul>{todos}</ul>
       </div>
     )
@@ -50,6 +50,11 @@ class App extends React.Component{
 
   toggle(e, todoItem) {
     todoItem.status = todoItem.status === "completed" ? "" : "completed";
+    this.setState(this.state);
+  }
+
+  delete(e, todoItem) {
+    todoItem.delete = true;
     this.setState(this.state);
   }
 }
