@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodoInput from './todoInput';
 import './App.css';
 
 class App extends React.Component{
@@ -14,12 +15,12 @@ class App extends React.Component{
   }
   render(){
     let todos = this.state.todoList.map(todo => {
-      return <li>{todo.title}</li>;
+      return <li key="todo.id">{todo.title}</li>;
     })
     return (
       <div>
         <h1>我的代办</h1>
-        <div><input /></div>
+        <TodoInput todo={this.state.newTodo}/>
         <ul>{todos}</ul>
       </div>
     )
