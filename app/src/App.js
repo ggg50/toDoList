@@ -23,7 +23,7 @@ class App extends React.Component{
       return <TodoItem key={todo.id} id={todo.id} title={todo.title} />;
     })
     return (
-      <div>
+      <div className="App">
         <h1>我的代办</h1>
         <TodoInput todo={this.state.newTodo}/>
         <ul>{todos}</ul>
