@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoInput from './todoInput';
+import TodoItem from './todoItem';
 import './App.css';
 
 class App extends React.Component{
@@ -15,7 +16,7 @@ class App extends React.Component{
   }
   render(){
     let todos = this.state.todoList.map(todo => {
-      return <li key="todo.id">{todo.title}</li>;
+      return <TodoItem key={todo.id} id={todo.id} title={todo.title} />;
     })
     return (
       <div>
