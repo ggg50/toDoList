@@ -5,7 +5,15 @@ class TodoItem extends React.Component{
     super(props);
   }
   render () {
-    return <li key={this.props.id}>{this.props.title}</li>
+    return  (
+      <div>
+        <input type="checkbox" checked={this.props.item.status === "completed"} onChange={this.toggle.bind(this)}/> {this.props.item.title}
+      </div>
+    )
+  }
+
+  toggle(e) {
+    this.props.onToggle(e, this.props.item)
   }
 }
 

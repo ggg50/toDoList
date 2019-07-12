@@ -20,7 +20,11 @@ class App extends React.Component{
   }
   render(){
     let todos = this.state.todoList.map(todo => {
-      return <TodoItem key={todo.id} id={todo.id} title={todo.title} />;
+      return (
+        <li key={todo.id}>
+          <TodoItem item={todo} onToggle={this.toggle.bind(this)}/>
+        </li>
+      )
     })
     return (
       <div className="App">
@@ -33,7 +37,7 @@ class App extends React.Component{
 
   addTodo(e) {
     this.state.todoList.push({
-      id: this.state.length + 1,
+      id: this.state.todoList.length + 1,
       title: e.target.value,
       status: null,
       deleted: false
@@ -42,6 +46,11 @@ class App extends React.Component{
       newTodo: "",
       toDoList: this.state.toDoList
     })
+  }
+
+  toggle(e, todoItem) {
+    todoItem.status = todoItem.status === "completed" ? "" : "completed";
+    this.setState(this.state);
   }
 }
 
