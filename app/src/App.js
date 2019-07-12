@@ -12,9 +12,9 @@ class App extends React.Component{
     this.state = {
       newTodo: "test",
       todoList: [
-        {id: 1, title: "First events"},
-        {id: 2, title: "Second events"},
-        {id: 3, title: "Third events"},
+        {id: 1, title: "First events", status: "completed", deleted: false},
+        {id: 2, title: "Second events", status: "completed", deleted: false},
+        {id: 3, title: "Third events", status: "completed", deleted: false},
       ]
     }
   }
@@ -25,7 +25,7 @@ class App extends React.Component{
     return (
       <div className="App">
         <h1>我的代办</h1>
-        <TodoInput todo={this.state.newTodo}/>
+        <TodoInput content={this.state.newTodo}/>
         <ul>{todos}</ul>
       </div>
     )

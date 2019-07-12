@@ -5,7 +5,7 @@ class TodoInput extends React.Component{
     super(props);
   }
   render () {
-    return <div> <input value={this.props.todo.title} /></div>
+    return <input type="text" value={this.props.content} />
   }
 }
 export default TodoInput
