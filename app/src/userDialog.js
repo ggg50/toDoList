@@ -5,14 +5,23 @@ import './userDialog.css'
 export default class UserDialog extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      selected: 'signUp'
+    }
   }
+  switch(e) {
+    this.setState({
+      selected: e.target.value
+    })
+  }
+
   render(){
     return (
       <div className="userDialogWrapper">
       <div className="userDialog">
-        <nav>
-          <input type="radio" />注册
-          <input type="radio" />登录
+        <nav onChange={this.switch.bind(this)}>
+          <label><input type="radio" value="signUp" checked={this.state.selected === "signUp"}/>注册</label>
+          <label><input type="radio" value="signIn" checked={this.state.selected === "signIn"}/>登录</label>
         </nav>
         <div className="panes">
           <form className="signUp">
@@ -29,7 +38,7 @@ export default class UserDialog extends React.Component{
             </div>
           </form>
 
-          <form className="signIp">
+          <form className="signIn">
             <div className="row">
               <label>用户名</label>
               <input type="text" />
