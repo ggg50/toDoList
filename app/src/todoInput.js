@@ -5,7 +5,8 @@ class TodoInput extends React.Component{
     super(props);
   }
   render () {
-    return <input type="text" className="todoInput" defaultValue={this.props.content}
+    return <input type="text" className="todoInput" value={this.props.content}
+    onChange={this.change.bind(this)}
     onKeyPress={this.submit.bind(this)}/>
   }
 
@@ -13,6 +14,10 @@ class TodoInput extends React.Component{
     if(e.key === "Enter") {
       this.props.onSubmit(e);
     }
+  }
+
+  change(e) {
+    this.props.onChange(e);
   }
 }
 export default TodoInput

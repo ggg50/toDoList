@@ -30,7 +30,7 @@ class App extends React.Component{
     return (
       <div className="App">
         <h1>我的代办</h1>
-          <TodoInput content={this.state.newTodo} onSubmit={this.addTodo.bind(this)} />
+          <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         <ul className="todoList">{todos}</ul>
       </div>
     )
@@ -57,6 +57,12 @@ class App extends React.Component{
   delete(e, todoItem) {
     todoItem.delete = true;
     this.setState(this.state);
+  }
+  changeTitle(e, todoItem) {
+    this.setState({
+      newTodo: e.target.value,
+      todoList: this.state.todoList
+    })
   }
 
   componentDidUpdate(){
