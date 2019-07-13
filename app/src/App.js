@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoInput from './todoInput';
 import TodoItem from './todoItem';
-import * as localStore from './localStore'
+import UserDialog from './userDialog';
 import 'normalize.css';
 import './reset.css';
 import './todoItem.css';
@@ -14,7 +14,8 @@ class App extends React.Component{
     super(props);
     this.state = {
       newTodo: "",
-      todoList: localStore.load("todoList") || []
+      todoList: []
+      // todoList: localStore.load("todoList") || []
     }
   }
   render(){
@@ -32,17 +33,19 @@ class App extends React.Component{
         <h1>我的代办</h1>
           <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         <ul className="todoList">{todos}</ul>
+        <UserDialog />
       </div>
     )
   }
 
   addTodo(e) {
-    this.state.todoList.push({
+    let newTodo = {
       id: this.state.todoList.length + 1,
       title: e.target.value,
       status: null,
       deleted: false
-    });
+    };
+    this.state.todoList.push(newTodo);
     this.setState({
       newTodo: "",
       todoList: this.state.todoList
@@ -66,7 +69,7 @@ class App extends React.Component{
   }
 
   componentDidUpdate(){
-    localStore.save("todoList", this.state.todoList);
+    // localStore.save("todoList", this.state.todoList);
   }
 }
 
