@@ -34,7 +34,7 @@ class App extends React.Component{
         <h1>{this.state.user.username || "我"}的代办</h1>
           <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         <ul className="todoList">{todos}</ul>
-        <UserDialog onSignUp={this.onSignUp.bind(this)} />
+        {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUp.bind(this)} />}
       </div>
     )
   }
