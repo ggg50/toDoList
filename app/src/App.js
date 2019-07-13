@@ -33,7 +33,7 @@ class App extends React.Component{
     return (
       <div className="App">
         <h1>{this.state.user.username || "我"}的代办</h1>
-        {this.state.user.id ? <button onClick={this.userSignOut.bind(this)}>登出</button>}
+        {this.state.user.id ? <button onClick={this.userSignOut.bind(this)}>登出</button> : null}
         <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         <ul className="todoList">{todos}</ul>
         {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUp.bind(this)} />}
@@ -48,7 +48,7 @@ class App extends React.Component{
   }
 
   userSignOut() {
-    singOut();
+    signOut();
     let stateCopy = JSON.parse(JSON.stringify(this.state));
     stateCopy.user = {};
     this.setState(stateCopy);
