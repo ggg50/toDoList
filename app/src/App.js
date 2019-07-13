@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoInput from './todoInput';
 import TodoItem from './todoItem';
+import * as localStore from './localStore'
 import 'normalize.css';
 import './reset.css';
 import './todoItem.css';
@@ -13,11 +14,7 @@ class App extends React.Component{
     super(props);
     this.state = {
       newTodo: "",
-      todoList: [
-        {id: 1, title: "First events", status: "completed", deleted: false},
-        {id: 2, title: "Second events", status: "completed", deleted: false},
-        {id: 3, title: "Third events", status: "completed", deleted: false},
-      ]
+      todoList: localStore.load("todoList") || []
     }
   }
   render(){
@@ -48,8 +45,8 @@ class App extends React.Component{
     });
     this.setState({
       newTodo: "",
-      toDoList: this.state.toDoList
-    })
+      todoList: this.state.todoList
+    });
   }
 
   toggle(e, todoItem) {
@@ -60,6 +57,10 @@ class App extends React.Component{
   delete(e, todoItem) {
     todoItem.delete = true;
     this.setState(this.state);
+  }
+
+  componentDidUpdate(){
+    localStore.save("todoList", this.state.todoList);
   }
 }
 
