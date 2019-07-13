@@ -40,9 +40,9 @@ class App extends React.Component{
   }
 
   onSignUp(user) {
-    console.log("okok");
-    this.state.user = user;
-    this.setState(this.state);
+    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    stateCopy.user = user
+    this.setState(stateCopy)
   }
 
   addTodo(e) {
