@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import TodoInput from './todoInput';
 import TodoItem from './todoItem';
 import UserDialog from './userDialog';
+import {getCurrentUser} from './leanCloud';
 import 'normalize.css';
 import './reset.css';
 import './todoItem.css';
@@ -13,7 +14,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      user:{},
+      user: getCurrentUser() || {},
       newTodo: "",
       todoList: []
       // todoList: localStore.load("todoList") || []
