@@ -25,6 +25,10 @@ export function signUp(username, password, successFn, errorFn){
   });
 }
 
+export function signOut() {
+  AV.User.logOut();
+}
+
 export function getCurrentUser(){
   let user = AV.User.current();
   if(user) {
