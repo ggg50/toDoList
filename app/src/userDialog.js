@@ -1,4 +1,5 @@
 import React from 'react';
+import './userDialog.css'
 
 
 export default class UserDialog extends React.Component{
