@@ -19,14 +19,9 @@ export default class UserDialog extends React.Component{
     })
   };
 
-  changeUserName(e){
+  changeFormData(key, e){
     let newState = JSON.parse(JSON.stringify(this.state));
-    newState.formData.userName = e.target.value;
-    this.setState(newState)
-  }
-  changePassword(e){
-    let newState = JSON.parse(JSON.stringify(this.state));
-    newState.formData.password = e.target.value;
+    newState.formData[key] = e.target.value;
     this.setState(newState)
   }
 
@@ -36,11 +31,11 @@ export default class UserDialog extends React.Component{
       <form className="signUp">
         <div className="row">
           <label>用户名</label>
-          <input type="text" value={this.state.formData.userName} onChange={this.changeUserName.bind(this)} />
+          <input type="text" value={this.state.formData.userName} onChange={this.changeFormData.bind(this, "userName")} />
         </div>
         <div className="row">
           <label>密码</label>
-          <input type="password" value={this.state.formData.password} onChange={this.changePassword.bind(this)} />
+          <input type="password" value={this.state.formData.password} onChange={this.changeFormData.bind(this, "password")} />
         </div>
         <div className="row actions">
           <button type="submit">注册</button>
@@ -51,11 +46,11 @@ export default class UserDialog extends React.Component{
         <form className="signIn">
           <div className="row">
             <label>用户名</label>
-            <input type="text" value={this.state.formData.userName} onChange={this.changeUserName.bind(this)} />
+            <input type="text" value={this.state.formData.userName} onChange={this.changeFormData.bind(this, "userName")} />
           </div>
           <div className="row">
             <label>密码</label>
-            <input type="password" value={this.state.formData.password} onChange={this.changePassword.bind(this)} />
+            <input type="password" value={this.state.formData.password} onChange={this.changeFormData.bind(this, "password")} />
           </div>
           <div className="row actions">
             <button type="submit">登录</button>
