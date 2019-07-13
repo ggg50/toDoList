@@ -1,5 +1,7 @@
 import React from 'react';
-import './userDialog.css'
+import {signUp} from './leanCloud';
+import './userDialog.css';
+
 
 
 export default class UserDialog extends React.Component{
@@ -8,7 +10,7 @@ export default class UserDialog extends React.Component{
     this.state = {
       selected: 'signUp',
       formData: {
-        userName:"",
+        username:"",
         password:""
       }
     }
@@ -23,15 +25,33 @@ export default class UserDialog extends React.Component{
     let newState = JSON.parse(JSON.stringify(this.state));
     newState.formData[key] = e.target.value;
     this.setState(newState)
+  };
+
+  formSignUp(e) {
+    console.log(1);
+    e.preventDefault();
+    let {username, password} = this.state.formData;
+    let success = (user) => {
+      console.log(user);
+    };
+    let error = (error) => {
+      console.log(error);
+    };
+    signUp(username, password, success, error);
+  };
+
+  formSignIn(e) {
+
   }
+
 
   render(){
 
     let signUpForm = (
-      <form className="signUp">
+      <form className="signUp" onSubmit={this.formSignUp.bind(this)} >
         <div className="row">
           <label>用户名</label>
-          <input type="text" value={this.state.formData.userName} onChange={this.changeFormData.bind(this, "userName")} />
+          <input type="text" value={this.state.formData.username} onChange={this.changeFormData.bind(this, "username")} />
         </div>
         <div className="row">
           <label>密码</label>
@@ -46,7 +66,7 @@ export default class UserDialog extends React.Component{
         <form className="signIn">
           <div className="row">
             <label>用户名</label>
-            <input type="text" value={this.state.formData.userName} onChange={this.changeFormData.bind(this, "userName")} />
+            <input type="text" value={this.state.formData.username} onChange={this.changeFormData.bind(this, "username")} />
           </div>
           <div className="row">
             <label>密码</label>
