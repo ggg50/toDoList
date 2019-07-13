@@ -13,6 +13,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      user:{},
       newTodo: "",
       todoList: []
       // todoList: localStore.load("todoList") || []
@@ -30,12 +31,18 @@ class App extends React.Component{
     })
     return (
       <div className="App">
-        <h1>我的代办</h1>
+        <h1>{this.state.user.username || "我"}的代办</h1>
           <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         <ul className="todoList">{todos}</ul>
-        <UserDialog />
+        <UserDialog onSignUp={this.onSignUp.bind(this)} />
       </div>
     )
+  }
+
+  onSignUp(user) {
+    console.log("okok");
+    this.state.user = user;
+    this.setState(this.state);
   }
 
   addTodo(e) {
