@@ -1,6 +1,12 @@
 import React from 'react';
 import {signUp, signIn, sendPasswordResetEmail} from './leanCloud';
+import SignUpForm from './signUpForm';
 import './userDialog.css';
+
+
+console.log(SignUpForm);
+console.log(111);
+
 
 
 
@@ -29,7 +35,7 @@ export default class UserDialog extends React.Component{
     this.setState(newState)
   };
 
-  formSignUp(e) {
+  signUp(e) {
     e.preventDefault();
     let {username, password, email} = this.state.formData;
     let success = (user) => {
@@ -88,25 +94,6 @@ export default class UserDialog extends React.Component{
 
   render(){
 
-    let signUpForm = (
-      <form className="signUp" onSubmit={this.formSignUp.bind(this)} >
-        <div className="row">
-          <label>用户名</label>
-          <input type="text" value={this.state.formData.username} onChange={this.changeFormData.bind(this, "username")} />
-        </div>
-        <div className="row">
-          <label>密码</label>
-          <input type="password" value={this.state.formData.password} onChange={this.changeFormData.bind(this, "password")} />
-        </div>
-        <div className="row">
-          <label>邮箱</label>
-          <input type="text" value={this.state.formData.email} onChange={this.changeFormData.bind(this, "email")} />
-        </div>
-        <div className="row actions">
-          <button type="submit">注册</button>
-        </div>
-      </form>);
-
     let signInForm = (
         <form className="signIn" onSubmit={this.formSignIn.bind(this)}>
           <div className="row">
@@ -132,7 +119,8 @@ export default class UserDialog extends React.Component{
             <label><input type="radio" value="signIn" checked={this.state.selected === "signIn"} onChange={this.switch.bind(this)}/>登录</label>
           </nav>
           <div className="panes">
-          {this.state.selected === "signUp" ? signUpForm : signInForm}
+          {this.state.selected === "signUp" ?
+            <SignUpForm formData={this.state.formData} onSubmit={this.signUp.bind(this)} onChange={this.changeFormData.bind(this)} /> : signInForm}
           </div>
         </div>
     )
