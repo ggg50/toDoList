@@ -16,6 +16,12 @@ export default class SignInOrSignUp extends React.Component{
     })
   };
 
+  tt(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+  }
+
   render() {
     return (
       <div className="signInOrSignUp">
@@ -26,6 +32,7 @@ export default class SignInOrSignUp extends React.Component{
         <div className="panes">
         {this.state.selected === "signUp" ?
           <SignUpForm formData={this.props.formData}
+                    tt={this.tt.bind(this)}
           onSubmit={this.props.onSignUp}
           onChange={this.props.onChange}
           /> : <SignInForm
