@@ -9,8 +9,80 @@ AV.init({
 });
 
 
-export default AV;
+//
+// export function fetch(resourceName) {
+//   let query = new AV.Query(resourceName);
+//   return query.find();
+// },
 
+export const TodoModel = {
+
+  getByUser(user, successFn, errorFn) {
+    let query = new AV.Query("TodoFolder");
+    query.find().then(response=> {
+      let array = response.map((t)=> {
+        return {id: t.id, ...t.attributes}
+      })
+      successFn.call(null, array);
+    }, error=> {
+      // errorFn && errorFn.call(null, error)
+    })
+
+  },
+
+  create({status, title, deleted}, successFn, errorFn) {
+    let TodoFolder = AV.Object.extend("TodoFolder");
+    let todoFolder = new TodoFolder();
+
+    todoFolder.save({
+      "title": title,
+      "status": status,
+      "delete": deleted
+    }).then(response=> {
+      successFn(response);
+    }, error=> {
+      errorFn(error);
+    })
+  }
+}
+
+
+
+
+
+export function saveNewTodo(newTodo) {
+
+
+
+
+}
+
+
+
+
+
+
+//
+// // 声明类型
+// let TodoFolder = AV.Object.extend("TodoFolder");
+// // 新建对象
+// let todoFolder = new TodoFolder();
+// // 设置名称
+// todoFolder.set('name','工作');
+// // 设置优先级
+// todoFolder.set('priority',1);
+// todoFolder.save().then(function (todo) {
+//   console.log('objectId is ' + todo.id);
+// }, function (error) {
+//   console.error(error);
+// });
+
+
+
+
+
+
+export default AV;
 
 export function signUp(username, password, email, successFn, errorFn) {
   //生成 user 对象，并设置 username 和 password
@@ -74,26 +146,3 @@ function getUserFromAVUser(AVUser) {
     ...AVUser.attributes
   }
 }
-
-
-
-
-
-//
-//
-// export function fetch(resourceName) {
-//   let query = new AV.Query(resourceName);
-//   return query.find();
-// },
-//
-// export function saveNew(resourceName, newTodo) {
-//   let Message = AV.Object.extend(resourceName);
-//   let message = new Message();
-//
-//   return message.save({
-//     "id": newTodo.id,
-//     "title": newTodo.title,
-//     "status": newTodo.status,
-//     "delete": newTodo.delete
-//   });
-// }

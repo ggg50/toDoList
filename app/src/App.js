@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import TodoInput from './todoInput';
 import TodoItem from './todoItem';
 import UserDialog from './userDialog';
-import {getCurrentUser, signOut} from './leanCloud';
+import {getCurrentUser, signOut, TodoModel} from './leanCloud';
 import 'normalize.css';
 import './reset.css';
 import './todoItem.css';
@@ -18,6 +18,15 @@ class App extends React.Component{
       newTodo: "",
       todoList: []
       // todoList: localStore.load("todoList") || []
+    }
+
+    let user = getCurrentUser;
+    if(user) {
+      TodoModel.getByUser(user, todos => {
+        let stateCopy = JSON.parse(JSON.stringify(this.state));
+        stateCopy.todoList = todos;
+        this.setState(stateCopy);
+      })
     }
   }
   render(){
@@ -56,16 +65,22 @@ class App extends React.Component{
 
   addTodo(e) {
     let newTodo = {
-      id: this.state.todoList.length + 1,
       title: e.target.value,
       status: null,
       deleted: false
     };
-    this.state.todoList.push(newTodo);
-    this.setState({
-      newTodo: "",
-      todoList: this.state.todoList
-    });
+
+    TodoModel.create(newTodo, todo=>{
+      newTodo.id = todo.id;
+      this.state.todoList.push(newTodo);
+      this.setState({
+        newTodo: "",
+        todoList: this.state.todoList
+      });
+    }, error=> {
+      console.log(error);
+    })
+
   }
 
   toggle(e, todoItem) {
