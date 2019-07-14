@@ -63,6 +63,10 @@ export function getCurrentUser(){
   }
 }
 
+export function sendPasswordResetEmail(email, successFn, errorFn) {
+  AV.User.requestPasswordReset(email).then(()=> console.log(1), (error)=> alert(error));
+}
+
 
 function getUserFromAVUser(AVUser) {
   return {
@@ -70,6 +74,8 @@ function getUserFromAVUser(AVUser) {
     ...AVUser.attributes
   }
 }
+
+
 
 
 
