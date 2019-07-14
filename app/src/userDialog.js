@@ -67,16 +67,21 @@ export default class UserDialog extends React.Component{
   };
 
   showForgotPassword() {
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
-    stateCopy.selectedTab = 'forgotPassword'
-    this.setState(stateCopy)
+    let stateCopy = JSON.parse(JSON.stringify(this.state));
+    stateCopy.selectedTab = "forgotPassword";
+    this.setState(stateCopy);
   };
 
   resetPassword(e){
-    e.preventDefault()
-    sendPasswordResetEmail(this.state.formData.email)
+    e.preventDefault();
+    sendPasswordResetEmail(this.state.formData.email);
   };
 
+  returnToSignIn() {
+    let stateCopy = JSON.parse(JSON.stringify(this.state));
+    stateCopy.selectedTab = 'signInOrSignUp';
+    this.setState(stateCopy)
+  }
 
 
 
@@ -142,6 +147,7 @@ export default class UserDialog extends React.Component{
           </div>
           <div className="row actions">
             <button type="submit">发送重置邮箱</button>
+            <a href="#" onClick={this.returnToSignIn.bind(this)}>返回登录</a>
           </div>
         </form>
       </div>
