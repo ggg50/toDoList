@@ -34,7 +34,12 @@ export default class UserDialog extends React.Component{
       this.props.onSignUp.call(null, user);
     };
     let error = (error) => {
-      alert(error);
+      if(error.code === 202) {
+        alert("用户名已经被占用");
+      } else {
+        alert(error);
+      }
+
     };
     signUp(username, password, success, error);
   };
@@ -46,7 +51,15 @@ export default class UserDialog extends React.Component{
       this.props.onSignUp.call(null, user);
     };
     let error = (error) => {
-      alert(error);
+      console.log(error);
+      if(error.code === 211) {
+        alert("找不到用户");
+      } else if (error.code === 210) {
+        alert("用户名与密码不匹配");
+      }
+      else {
+        alert(error);
+      }
     };
     signIn(username, password, success, error);
   }

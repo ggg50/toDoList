@@ -15,14 +15,21 @@ export default AV;
 export function signUp(username, password, successFn, errorFn) {
   //生成 user 对象，并设置 username 和 password
   var user = new AV.User();
-  user.setUsername(username);
-  user.setPassword(password);
 
-  user.signUp().then(function (loginedUser) {
-    let user = getUserFromAVUser(loginedUser);
-    successFn.call(null, user);
-  }, function (error) {
-  });
+  if(!username) {
+    alert("用户名不能为空")
+  } else if(!password) {
+    alert("密码不能为空")
+  } else {
+    user.setUsername(username);
+    user.setPassword(password);
+    user.signUp().then(function (loginedUser) {
+      let user = getUserFromAVUser(loginedUser);
+      successFn.call(null, user);
+    }, function (error) {
+      errorFn(error);
+    });
+  }
 }
 
 export function signIn(username, password, successFn, errorFn) {
