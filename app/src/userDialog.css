@@ -24,4 +24,7 @@
 
 .userDialog form > .row {display: flex; padding: 0.3em 0}
 .userDialog form > .row > label:first-child {width: 4em}
-.userDialog form > .row.actions{ padding-left: 4em}
+.userDialog form > .row.actions{ padding-left: 4em; display: flex; align-items: center;}
+.userDialog form > .row.actions button{ margin-left: 0.5em}
+
+.userDialog button {font: inherit; padding: .2em;}
