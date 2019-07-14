@@ -33,12 +33,18 @@ export function signUp(username, password, successFn, errorFn) {
 }
 
 export function signIn(username, password, successFn, errorFn) {
-  AV.User.logIn(username, password).then(function(loginedUser) {
-    let user = getUserFromAVUser(loginedUser);
-    successFn.call(null, user);
-  }, function(error) {
-    errorFn.call(null, error);
-  })
+  if(!username) {
+    alert("用户名不能为空")
+  } else if(!password) {
+    alert("密码不能为空")
+  } else {
+    AV.User.logIn(username, password).then(function(loginedUser) {
+      let user = getUserFromAVUser(loginedUser);
+      successFn.call(null, user);
+    }, function(error) {
+      errorFn.call(null, error);
+    })
+  }
 }
 
 export function signOut() {
