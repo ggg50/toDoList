@@ -1,15 +1,13 @@
 import React from 'react';
 import {signUp, signIn, sendPasswordResetEmail} from './leanCloud';
-import SignUpForm from './signUpForm';
-import SignInForm from './signInForm';
 import ForgotPassword from './forgotPasswordForm';
+import SignInOrSignUp from './signInOrSignUp'
 import './userDialog.css';
 
 export default class UserDialog extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      selected: "signUp",
       selectedTab: "signInOrSignUp",
       formData: {
         username:"",
@@ -17,11 +15,6 @@ export default class UserDialog extends React.Component{
         email:""
       }
     }
-  };
-  switch(e) {
-    this.setState({
-      selected: e.target.value
-    })
   };
 
   changeFormData(key, e){
@@ -86,34 +79,18 @@ export default class UserDialog extends React.Component{
 
 
 
-
   render(){
-
-    let signInOrSignUp = (
-        <div className="signInOrSignUp">
-          <nav>
-            <label><input type="radio" value="signUp" checked={this.state.selected === "signUp"} onChange={this.switch.bind(this)}/>注册</label>
-            <label><input type="radio" value="signIn" checked={this.state.selected === "signIn"} onChange={this.switch.bind(this)}/>登录</label>
-          </nav>
-          <div className="panes">
-          {this.state.selected === "signUp" ?
-            <SignUpForm formData={this.state.formData}
-            onSubmit={this.signUp.bind(this)}
-            onChange={this.changeFormData.bind(this)}
-            /> : <SignInForm
-            formData={this.state.formData}
-            onSubmit={this.signIn.bind(this)}
-            onChange={this.changeFormData.bind(this)}
-            onForgetPassword={this.showForgotPassword.bind(this)} />}
-          </div>
-        </div>
-    )
-
     return (
       <div className="userDialogWrapper">
         <div className="userDialog">
-          {this.state.selectedTab === "signInOrSignUp" ? signInOrSignUp : <ForgotPassword
-          formData={this.state.formData}
+          {this.state.selectedTab === "signInOrSignUp" ?
+          <SignInOrSignUp formData={this.state.formData}
+          onChange={this.changeFormData.bind(this)}
+          onSignUp={this.signUp.bind(this)}
+          onSignIn={this.signIn.bind(this)}
+          onForgetPassword={this.showForgotPassword.bind(this)}
+          /> :
+          <ForgotPassword formData={this.state.formData}
           onChange={this.changeFormData.bind(this)}
           onSubmit={this.resetPassword.bind(this)}
           onSignIn={this.returnToSignIn.bind(this)}/>}
