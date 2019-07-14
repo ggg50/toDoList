@@ -1,5 +1,5 @@
 import React from 'react';
-import {signUp} from './leanCloud';
+import {signUp, signIn} from './leanCloud';
 import './userDialog.css';
 
 
@@ -34,13 +34,21 @@ export default class UserDialog extends React.Component{
       this.props.onSignUp.call(null, user);
     };
     let error = (error) => {
-      console.log(error);
+      alert(error);
     };
     signUp(username, password, success, error);
   };
 
   formSignIn(e) {
-
+    e.preventDefault();
+    let {username, password} = this.state.formData;
+    let success = (user) => {
+      this.props.onSignUp.call(null, user);
+    };
+    let error = (error) => {
+      alert(error);
+    };
+    signIn(username, password, success, error);
   }
 
 
@@ -62,7 +70,7 @@ export default class UserDialog extends React.Component{
       </form>);
 
     let signInForm = (
-        <form className="signIn">
+        <form className="signIn" onSubmit={this.formSignIn.bind(this)}>
           <div className="row">
             <label>用户名</label>
             <input type="text" value={this.state.formData.username} onChange={this.changeFormData.bind(this, "username")} />
