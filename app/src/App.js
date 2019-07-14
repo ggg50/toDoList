@@ -31,7 +31,7 @@ class App extends React.Component{
   }
   render(){
     let todos = this.state.todoList
-    .filter(todo => !todo.delete)
+    .filter(todo => !todo.deleted)
     .map(todo => {
       return (
         <li key={todo.id}>
@@ -83,14 +83,23 @@ class App extends React.Component{
 
   }
 
-  toggle(e, todoItem) {
-    todoItem.status = todoItem.status === "completed" ? "" : "completed";
-    this.setState(this.state);
+  toggle(e, todo) {
+    let oldStatus = todo.status;
+    todo.status = todo.status === "completed" ? "" : "completed";
+    TodoModel.update(todo, ()=> {
+      this.setState(this.state);
+    }, ()=>{
+      todo.status = oldStatus;
+      this.setState(this.state);
+    })
+
   }
 
-  delete(e, todoItem) {
-    todoItem.delete = true;
-    this.setState(this.state);
+  delete(e, todo) {
+    TodoModel.destroy(todo.id, ()=> {
+      todo.deleted = true;
+      this.setState(this.state);
+    })
   }
   changeTitle(e, todoItem) {
     this.setState({

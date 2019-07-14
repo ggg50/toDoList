@@ -32,9 +32,16 @@ export const TodoModel = {
 
   create({status, title, deleted}, successFn, errorFn) {
     let TodoFolder = AV.Object.extend("TodoFolder");
-    let todoFolder = new TodoFolder();
+    let todo = new TodoFolder();
 
-    todoFolder.save({
+    let acl = new AV.ACL();
+    acl.setPublicReadAccess(false);
+    acl.setReadAccess(AV.User.current(), true);
+    acl.setWriteAccess(AV.User.current(), true);
+
+    todo.setACL(acl);
+
+    todo.save({
       "title": title,
       "status": status,
       "delete": deleted
@@ -42,6 +49,27 @@ export const TodoModel = {
       successFn(response);
     }, error=> {
       errorFn(error);
+    })
+  },
+
+  destroy(todoId, successFn, errorFn){
+    let todo = AV.Object.createWithoutData("TodoFolder", todoId);
+    todo.destroy().then(response=> {
+      successFn && successFn.call(null)
+    }, error=> {
+      errorFn && errorFn.call(null)
+    })
+  },
+
+  update({id, title, status, deleted}, successFn, errorFn) {
+    let todo = AV.Object.createWithoutData("TodoFolder", id);
+    title !== undefined && todo.set("title", title);
+    status !== undefined && todo.set("status", status);
+    deleted !== undefined && todo.set("deleted", deleted);
+    todo.save().then(response=>{
+      successFn && successFn.call(null);
+    }, ()=> {
+      errorFn && errorFn.call(null);
     })
   }
 }
