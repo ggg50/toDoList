@@ -36,12 +36,12 @@ class App extends React.Component{
         {this.state.user.id ? <button onClick={this.userSignOut.bind(this)}>登出</button> : null}
         <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         <ul className="todoList">{todos}</ul>
-        {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUp.bind(this)} />}
+        {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)} onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
       </div>
     )
   }
 
-  onSignUp(user) {
+  onSignUpOrSignIn(user) {
     let stateCopy = JSON.parse(JSON.stringify(this.state))
     stateCopy.user = user
     this.setState(stateCopy)
