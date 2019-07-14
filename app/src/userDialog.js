@@ -2,6 +2,7 @@ import React from 'react';
 import {signUp, signIn, sendPasswordResetEmail} from './leanCloud';
 import SignUpForm from './signUpForm';
 import SignInForm from './signInForm';
+import ForgotPassword from './forgotPasswordForm';
 import './userDialog.css';
 
 export default class UserDialog extends React.Component{
@@ -108,26 +109,14 @@ export default class UserDialog extends React.Component{
         </div>
     )
 
-    let forgotPassword = (
-      <div className="forgotPassword">
-        <h3>重置密码</h3>
-        <form className="forgotPassword" onSubmit={this.resetPassword.bind(this)}>
-          <div className="row">
-            <label>邮箱</label>
-            <input type="text" onChange={this.changeFormData.bind(this, "email")} value={this.state.formData.email} />
-          </div>
-          <div className="row actions">
-            <button type="submit">发送重置邮箱</button>
-            <a href="#" onClick={this.returnToSignIn.bind(this)}>返回登录</a>
-          </div>
-        </form>
-      </div>
-    )
-
     return (
       <div className="userDialogWrapper">
         <div className="userDialog">
-          {this.state.selectedTab === "signInOrSignUp" ? signInOrSignUp : forgotPassword}
+          {this.state.selectedTab === "signInOrSignUp" ? signInOrSignUp : <ForgotPassword
+          formData={this.state.formData}
+          onChange={this.changeFormData.bind(this)}
+          onSubmit={this.resetPassword.bind(this)}
+          onSignIn={this.returnToSignIn.bind(this)}/>}
         </div>
       </div>
     )
