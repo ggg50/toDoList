@@ -12,7 +12,7 @@ AV.init({
 export default AV;
 
 
-export function signUp(username, password, successFn, errorFn) {
+export function signUp(username, password, email, successFn, errorFn) {
   //生成 user 对象，并设置 username 和 password
   var user = new AV.User();
 
@@ -20,9 +20,12 @@ export function signUp(username, password, successFn, errorFn) {
     alert("用户名不能为空")
   } else if(!password) {
     alert("密码不能为空")
+  } else if(!email) {
+    alert("邮箱不能为空")
   } else {
     user.setUsername(username);
     user.setPassword(password);
+    user.setEmail(email);
     user.signUp().then(function (loginedUser) {
       let user = getUserFromAVUser(loginedUser);
       successFn.call(null, user);

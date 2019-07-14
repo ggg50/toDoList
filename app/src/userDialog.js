@@ -11,7 +11,8 @@ export default class UserDialog extends React.Component{
       selected: 'signUp',
       formData: {
         username:"",
-        password:""
+        password:"",
+        email:""
       }
     }
   };
@@ -29,7 +30,7 @@ export default class UserDialog extends React.Component{
 
   formSignUp(e) {
     e.preventDefault();
-    let {username, password} = this.state.formData;
+    let {username, password, email} = this.state.formData;
     let success = (user) => {
       this.props.onSignUp.call(null, user);
     };
@@ -41,7 +42,7 @@ export default class UserDialog extends React.Component{
       }
 
     };
-    signUp(username, password, success, error);
+    signUp(username, password, email, success, error);
   };
 
   formSignIn(e) {
@@ -76,6 +77,10 @@ export default class UserDialog extends React.Component{
         <div className="row">
           <label>密码</label>
           <input type="password" value={this.state.formData.password} onChange={this.changeFormData.bind(this, "password")} />
+        </div>
+        <div className="row">
+          <label>邮箱</label>
+          <input type="text" value={this.state.formData.email} onChange={this.changeFormData.bind(this, "email")} />
         </div>
         <div className="row actions">
           <button type="submit">注册</button>
