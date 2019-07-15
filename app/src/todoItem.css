@@ -1,6 +1,6 @@
 .todoItem {
   font-size: 18px;
-  padding: 25px 10px;
+  padding: 22px 10px;
   display: flex;
   align-items: center;
 }
@@ -15,6 +15,7 @@
 }
 .todoItem>.title.completed {
   text-decoration: line-through;
+  color: #d9d9d9;
 }
 
 .todoItem > input[type="checkbox"] {
