@@ -9,7 +9,7 @@ export default class ForgotPassword extends React.Component{
           <div className="inputWrapper">
             <div className="iconWrapper">
               <svg class="icon" aria-hidden="true">
-                <use xlinkHref="#icon-youxiang"></use>
+                <use xlinkHref="#icon-youxiang1"></use>
               </svg>
               <svg class="icon" aria-hidden="true">
                 <use xlinkHref="#icon-fs-line"></use>

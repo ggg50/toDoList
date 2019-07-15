@@ -5,7 +5,7 @@ class TodoInput extends React.Component{
     super(props);
   }
   render () {
-    return <input type="text" className="todoInput" value={this.props.content}
+    return <input type="text" className="todoInput" placeholder="✏️" value={this.props.content}
     onChange={this.change.bind(this)}
     onKeyPress={this.submit.bind(this)}/>
   }
