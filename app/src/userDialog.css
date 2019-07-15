@@ -12,9 +12,8 @@
 
 .userDialog {
   border-radius: 4px;
-  min-width: 20em;
-  background-color: white;
-  border: 1px solid #aaa;
+  min-width: 440px;
+  background-color: #ffffff;
   box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.35);
 }
 

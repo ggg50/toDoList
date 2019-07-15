@@ -9,7 +9,7 @@ class TodoItem extends React.Component{
       <div className="todoItem">
         <input type="checkbox" checked={this.props.item.status === "completed"} onChange={this.toggle.bind(this)}/>
         <span className="title">{this.props.item.title}</span>
-        <button onClick={this.delete.bind(this)}>删除</button>
+        <button onClick={this.delete.bind(this)}></button>
       </div>
     )
   }

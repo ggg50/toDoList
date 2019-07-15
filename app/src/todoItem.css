@@ -8,3 +8,59 @@
   flex-grow: 1;
   padding: 0 .5em;
 }
+
+.todoItem > input[type="checkbox"] {
+  visibility: hidden;
+  position: relative;
+}
+
+.todoItem > input[type="checkbox"]::before {
+  visibility: visible;
+  position: absolute;
+  font-size: 20px;
+  border: 3px solid #81d7ab;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  left: -15px;
+  top: -5px;
+  content: "";
+  cursor: pointer;
+}
+
+.todoItem > input[type="checkbox"]::after {
+  visibility: visible;
+  position: absolute;
+  font-size: 30px;
+  width: 26px;
+  height: 26px;
+  left: -15px;
+  top: -9px;
+  content: "✔️";
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.todoItem > input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
+
+.todoItem > button {
+  visibility: hidden;
+}
+
+.todoItem:hover > button::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.todoItem > button::after {
+  transition: all 0.5s;
+  visibility: visible;
+  color: #cda7a7;
+  content: "×";
+  font-size: 25px;
+  cursor: pointer;
+  opacity: 0;
+}

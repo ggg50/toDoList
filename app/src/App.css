@@ -1,17 +1,17 @@
 .App {
   color: #333;
-  border: 1px solid #aaa;
   border-radius: 4px;
-  background-color: white;
+  background-color: #ffffff;
+  color: #626472;
   margin: 2em;
-  padding: 0 0.1em;
-  min-height: 20em;
-  min-width: 32em;
+  padding: 30px 50px;
+  min-height: 320px;
+  min-width: 440px;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
 }
 
 body{
-  background: #ddd;
+  background: #f0efea;
 }
 
 #root{
@@ -20,9 +20,12 @@ body{
   min-height: 100vh;
 }
 
-.App > .todoList> li:nth-child(odd){
-  background: #eee;
-}
-.App > .todoList> li:nth-child(even){
+/* .App > .todoList> li:nth-child(odd){
+  background: ;
+} */
+
+.App > .todoList> li{
+  font-size: 18px;
+  padding: 12px 0;
   background: transparent;
 }
