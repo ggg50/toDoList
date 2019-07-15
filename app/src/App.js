@@ -38,11 +38,20 @@ class App extends React.Component{
           <TodoItem item={todo} onToggle={this.toggle.bind(this)} onDelete={this.delete.bind(this)}/>
         </li>
       )
-    })
+    });
+    let useTag = ''
+
     return (
+
       <div className="App">
-        <h1>{this.state.user.username || "我"}的待办</h1>
-        {this.state.user.id ? <button onClick={this.userSignOut.bind(this)}>登出</button> : null}
+        <header>
+          <h1>{this.state.user.username || "我"}的待办</h1>
+          {this.state.user.id ? <span onClick={this.userSignOut.bind(this)}>
+            <svg class="icon" aria-hidden="true">
+              <use xlinkHref="#icon-logout"></use>
+            </svg>
+          </span> : null}
+        </header>
         <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         <ul className="todoList">{todos}</ul>
         {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)} onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
