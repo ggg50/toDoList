@@ -8,13 +8,6 @@ AV.init({
   appKey: APP_KEY
 });
 
-
-//
-// export function fetch(resourceName) {
-//   let query = new AV.Query(resourceName);
-//   return query.find();
-// },
-
 export const TodoModel = {
 
   getByUser(user, successFn, errorFn) {

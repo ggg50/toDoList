@@ -66,7 +66,7 @@ class App extends React.Component{
   addTodo(e) {
     let newTodo = {
       title: e.target.value,
-      status: null,
+      status: "uncomplete",
       deleted: false
     };
 
@@ -85,7 +85,7 @@ class App extends React.Component{
 
   toggle(e, todo) {
     let oldStatus = todo.status;
-    todo.status = todo.status === "completed" ? "" : "completed";
+    todo.status = todo.status === "completed" ? "uncomplete" : "completed";
     TodoModel.update(todo, ()=> {
       this.setState(this.state);
     }, ()=>{
