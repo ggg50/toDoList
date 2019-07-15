@@ -13,6 +13,9 @@
   flex-grow: 1;
   padding: 0 18px;
 }
+.todoItem>.title.completed {
+  text-decoration: line-through;
+}
 
 .todoItem > input[type="checkbox"] {
   visibility: hidden;
