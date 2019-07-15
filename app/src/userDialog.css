@@ -1,3 +1,8 @@
+input:focus {
+  outline: none;
+}
+
+
 .userDialogWrapper{
   position: fixed;
   top: 0;
@@ -10,23 +15,63 @@
   background: hsla(0,0%,0%,0.40);
 }
 
-.userDialog {
-  border-radius: 4px;
-  min-width: 440px;
-  background-color: #ffffff;
-  box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.35);
+
+.userDialog { border-radius: 4px; min-width: 440px; min-height: 400px; background-color: #f0efea; box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.35); position: relative;}
+
+.userDialog .signInOrSignUp,
+.userDialog .forgotPassword {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.userDialog .signInOrSignUp > nav:first-child {padding: 1em; margin-left: -2em}
-.userDialog .signInOrSignUp > nav:first-child label {margin-left: 2em; cursor:pointer;}
-.userDialog .signInOrSignUp > .panes {padding: 0 1em 1em;}
 
-.userDialog .forgotPassword > h3 {padding: 1em;}
-.userDialog .forgotPassword > form { padding: 0 1em 1em; }
+.userDialog .signInOrSignUp h1 {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-.userDialog form > .row {display: flex; padding: 0.3em 0}
-.userDialog form > .row > label:first-child {width: 4em}
-.userDialog form > .row.actions{ padding-left: 4em; display: flex; align-items: center;}
-.userDialog form > .row.actions button{ margin-left: 0.5em}
 
-.userDialog button {font: inherit; padding: .2em;}
+.userDialog form > .inputWrapper { position: relative; height: 35px; margin: 20px 0;}
+
+.userDialog form > .inputWrapper > .iconWrapper { border: 1px solid #f0efea; width: 50px; position: absolute; background-color: #ffffff; left: 18%; border-radius: 18px 0 0 18px / 18px 0 0 18px; border-right: transparent; box-shadow: inset -1px 1px #cfcec8;}
+
+.userDialog form > .inputWrapper > .iconWrapper .icon
+ { transform: translateX(8px); width: 20px; height: 35px; vertical-align: -0.15em; fill: #9d9d9d; overflow: hidden; font-size: 18px;}
+
+.userDialog form > .inputWrapper > input
+ { border: 1px solid #f0efea; width: 53%; line-height: 35px; background-color: #ffffff; font-size: 14px; right: 18%; position: absolute; border-radius: 0 18px 18px 0 / 0 18px 18px 0; border-left: transparent; box-shadow: inset -1px 1px #cfcec8;}
+
+
+.userDialog form .actions { width: 100%; height: 50px; position: relative;}
+.userDialog form .actions button { width: 64%; line-height: 35px; padding: 0; position: absolute; left: 50%; transform: translateX(-50%); border-radius: 17px; background-color: #e6deb3; border: none; cursor: pointer;}
+.userDialog form .actions button:active { background-color: #ccc59f;}
+
+
+.userDialog form .switcher {
+  position: relative;
+  font-size: 11px;
+}
+
+.userDialog form .switcher a {
+  color: #4299f5;
+}
+
+.userDialog form .switcher .toLeft {
+  position: absolute;
+  left: 20%;
+}
+.userDialog form .switcher .toRight {
+  position: absolute;
+  right: 20%;
+}
+
+.userDialog .forgotPassword > h3 {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -5,15 +5,8 @@
 body{
   background: #f0efea;
 }
-
-
-.icon {
-   width: 1.2em; height: 1.2em;
-   vertical-align: -0.15em;
-   fill: currentColor;
-   overflow: hidden;
-   margin-left: 20px;
-   cursor: pointer;
+button:focus {
+  outline: none;
 }
 
 .App {
@@ -30,6 +23,15 @@ body{
 
 .App header {
   margin-bottom: 20px;
+}
+
+.App header .icon {
+   width: 1.2em; height: 1.2em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+   margin-left: 20px;
+   cursor: pointer;
 }
 
 #root{

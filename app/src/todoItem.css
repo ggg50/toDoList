@@ -48,7 +48,6 @@
   content: "✔️";
   opacity: 0;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
 .todoItem > input[type="checkbox"]:checked::after {

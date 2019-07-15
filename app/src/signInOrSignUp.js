@@ -6,13 +6,13 @@ export default class SignInOrSignUp extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      selected: "signUp"
+      selected: "signIn"
     }
   };
 
-  switch(e) {
+  switch(state) {
     this.setState({
-      selected: e.target.value
+      selected: state
     })
   };
 
@@ -25,21 +25,19 @@ export default class SignInOrSignUp extends React.Component{
   render() {
     return (
       <div className="signInOrSignUp">
-        <nav>
-          <label><input type="radio" value="signUp" checked={this.state.selected === "signUp"} onChange={this.switch.bind(this)}/>注册</label>
-          <label><input type="radio" value="signIn" checked={this.state.selected === "signIn"} onChange={this.switch.bind(this)}/>登录</label>
-        </nav>
+        <h1>Justdo</h1>
         <div className="panes">
         {this.state.selected === "signUp" ?
           <SignUpForm formData={this.props.formData}
                     tt={this.tt.bind(this)}
           onSubmit={this.props.onSignUp}
           onChange={this.props.onChange}
+          onSwitch={this.switch.bind(this)}
           /> : <SignInForm
           formData={this.props.formData}
           onSubmit={this.props.onSignIn}
           onChange={this.props.onChange}
-          onForgetPassword={this.props.onForgetPassword} />}
+          onForgetPassword={this.props.onForgetPassword} onSwitch={this.switch.bind(this)} />}
         </div>
       </div>
     )

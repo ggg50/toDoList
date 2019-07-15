@@ -3,20 +3,48 @@ import React from 'react';
 export default function(props){
     return (
      <form className="signUp" onSubmit={props.onSubmit} >
-      <div className="row">
-        <label onClick={props.tt.bind(null, "a", "b")}>用户名</label>
-        <input type="text" value={props.formData.username} onChange={props.onChange.bind(null, "username")} />
+
+      <div className="inputWrapper">
+        <div className="iconWrapper">
+          <svg class="icon" aria-hidden="true">
+            <use xlinkHref="#icon-denglu-copy"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlinkHref="#icon-fs-line"></use>
+          </svg>
+        </div>
+        <input type="text" value={props.formData.username} placeholder="请输入您的账号" onChange={props.onChange.bind(null, "username")} />
       </div>
-      <div className="row">
-        <label>密码</label>
-        <input type="password" value={props.formData.password} onChange={props.onChange.bind(null, "password")} />
+
+      <div className="inputWrapper">
+        <div className="iconWrapper">
+          <svg class="icon" aria-hidden="true">
+            <use xlinkHref="#icon-mima"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlinkHref="#icon-fs-line"></use>
+          </svg>
+        </div>
+        <input type="password" value={props.formData.password} placeholder="请输入您的密码" onChange={props.onChange.bind(null, "password")} />
       </div>
-      <div className="row">
-        <label>邮箱</label>
-        <input type="text" value={props.formData.email} onChange={props.onChange.bind(null, "email")} />
+
+      <div className="inputWrapper">
+        <div className="iconWrapper">
+          <svg class="icon" aria-hidden="true">
+            <use xlinkHref="#icon-youxiang"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlinkHref="#icon-fs-line"></use>
+          </svg>
+        </div>
+        <input type="text" value={props.formData.email} placeholder="请输入您的邮箱" onChange={props.onChange.bind(null, "email")} />
       </div>
-      <div className="row actions">
+
+      <div className="actions">
         <button type="submit">注册</button>
+      </div>
+      <div className="switcher">
+        <a className="toRight" href="#" onClick={props.onSwitch.bind(null, "signIn")}>返回注册</a>
       </div>
     </form>);
   }
