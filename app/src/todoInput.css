@@ -1,7 +1,14 @@
+.todoInput:focus {
+  outline: none;
+}
+
 .todoInput{
   width: 100%;
   line-height: 1.8;
   margin-bottom: 1em;
-  font-size: 16px;
+  font-size: 18px;
   padding: 0 .2em;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: #f0f0f0;
 }
