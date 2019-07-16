@@ -1,38 +1,13 @@
-input:focus {
-  outline: none;
-}
-
-
-.userDialogWrapper{
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  background: hsla(0,0%,0%,0.40);
-}
+.userDialogWrapper{ position: fixed; top: 0; left: 0; bottom: 0; right: 0; display: flex; justify-content:center; align-items: center; background: hsla(0,0%,0%,0.40);}
 
 
 .userDialog { border-radius: 4px; min-width: 440px; min-height: 400px; background-color: #f0efea; box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.35); position: relative;}
 
 .userDialog .signInOrSignUp,
-.userDialog .forgotPassword {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-}
+.userDialog .forgotPassword { position: absolute; width: 100%; top: 50%; transform: translateY(-50%);}
 
 
-.userDialog .signInOrSignUp h1 {
-  position: absolute;
-  top: -70px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+.userDialog .signInOrSignUp h1 { position: absolute; top: -70px; left: 50%; transform: translateX(-50%);}
 
 
 .userDialog form > .inputWrapper { position: relative; height: 35px; margin: 20px 0;}
@@ -51,27 +26,9 @@ input:focus {
 .userDialog form .actions button:active { background-color: #ccc59f;}
 
 
-.userDialog form .switcher {
-  position: relative;
-  font-size: 11px;
-}
+.userDialog form .switcher { position: relative; font-size: 11px;}
+.userDialog form .switcher a { color: #4299f5;}
+.userDialog form .switcher .toLeft { position: absolute; left: 20%;}
+.userDialog form .switcher .toRight { position: absolute; right: 20%;}
 
-.userDialog form .switcher a {
-  color: #4299f5;
-}
-
-.userDialog form .switcher .toLeft {
-  position: absolute;
-  left: 20%;
-}
-.userDialog form .switcher .toRight {
-  position: absolute;
-  right: 20%;
-}
-
-.userDialog .forgotPassword > h3 {
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+.userDialog .forgotPassword > h3 { position: absolute; top: -80px; left: 50%; transform: translateX(-50%);}

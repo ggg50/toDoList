@@ -1,15 +1,1 @@
-.todoInput:focus {
-  outline: none;
-}
-
-.todoInput{
-  width: 100%;
-  line-height: 1.8;
-  margin-bottom: 1em;
-  font-size: 18px;
-  padding: 0 .2em;
-  padding: 5px;
-  border: none;
-  border-bottom: 1px solid #e4e3de;
-  /* background-color: #f0f0f0; */
-}
+.todoInput{ width: 100%; line-height: 1.8; margin-bottom: 1em; font-size: 18px; padding: 0 .2em; padding: 5px; border: none; border-bottom: 1px solid #e4e3de;}

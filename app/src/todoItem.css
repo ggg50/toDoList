@@ -1,73 +1,20 @@
-.todoItem {
-  font-size: 18px;
-  padding: 18px 10px;
-  display: flex;
-  align-items: center;
-}
+.todoItem { font-size: 18px; padding: 18px 10px; display: flex; align-items: center;}
 
-.todoItem:hover {
-  background-color: #f5f5f5;
-}
+.todoItem:hover { background-color: #f5f5f5;}
 
-.todoItem>.title{
-  flex-grow: 1;
-  padding: 0 18px;
-}
-.todoItem>.title.completed {
-  text-decoration: line-through;
-  color: #d9d9d9;
-}
+.todoItem>.title{ flex-grow: 1; padding: 0 18px;}
+.todoItem>.title.completed { text-decoration: line-through; color: #d9d9d9;}
 
-.todoItem > input[type="checkbox"] {
-  visibility: hidden;
-  position: relative;
-}
 
-.todoItem > input[type="checkbox"]::before {
-  visibility: visible;
-  position: absolute;
-  font-size: 20px;
-  border: 3px solid #81d7ab;
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  left: -2px;
-  top: -5px;
-  content: "";
-  cursor: pointer;
-}
+.todoItem > input[type="checkbox"] { visibility: hidden; position: relative;}
 
-.todoItem > input[type="checkbox"]::after {
-  visibility: visible;
-  position: absolute;
-  font-size: 25px;
-  width: 22px;
-  height: 22px;
-  left: -2px;
-  top: -9px;
-  content: "✔️";
-  opacity: 0;
-  cursor: pointer;
-}
+.todoItem > input[type="checkbox"]::before { visibility: visible; position: absolute; font-size: 20px; border: 3px solid #81d7ab; border-radius: 50%; width: 22px; height: 22px; left: -2px; top: -5px; content: ""; cursor: pointer;}
+.todoItem > input[type="checkbox"]::after { visibility: visible; position: absolute; font-size: 25px; width: 22px; height: 22px; left: -2px; top: -9px; content: "✔️"; opacity: 0; cursor: pointer;}
 
-.todoItem > input[type="checkbox"]:checked::after {
-  opacity: 1;
-}
+.todoItem > input[type="checkbox"]:checked::after { opacity: 1;}
 
-.todoItem > button {
-  visibility: hidden;
-}
-.todoItem:hover > button::after {
-  visibility: visible;
-  opacity: 1;
-}
 
-.todoItem > button::after {
-  transition: all 0.5s;
-  visibility: visible;
-  color: #cda7a7;
-  content: "×";
-  font-size: 25px;
-  cursor: pointer;
-  opacity: 0;
-}
+.todoItem > button { visibility: hidden;}
+.todoItem:hover > button::after { visibility: visible; opacity: 1;}
+
+.todoItem > button::after { transition: all 0.5s; visibility: visible; color: #cda7a7; content: "×"; font-size: 25px; cursor: pointer; opacity: 0;}
