@@ -18,7 +18,7 @@ export const TodoModel = {
       })
       successFn.call(null, array);
     }, error=> {
-      // errorFn && errorFn.call(null, error)
+      errorFn && errorFn.call(null, error)
     })
 
   },
@@ -66,41 +66,6 @@ export const TodoModel = {
     })
   }
 }
-
-
-
-
-
-export function saveNewTodo(newTodo) {
-
-
-
-
-}
-
-
-
-
-
-
-//
-// // 声明类型
-// let TodoFolder = AV.Object.extend("TodoFolder");
-// // 新建对象
-// let todoFolder = new TodoFolder();
-// // 设置名称
-// todoFolder.set('name','工作');
-// // 设置优先级
-// todoFolder.set('priority',1);
-// todoFolder.save().then(function (todo) {
-//   console.log('objectId is ' + todo.id);
-// }, function (error) {
-//   console.error(error);
-// });
-
-
-
-
 
 
 export default AV;
