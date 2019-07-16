@@ -11,5 +11,9 @@ a{ color: inherit;}
 
 input:focus { outline: none;}
 
+/*
 input[type="text"]{appearance: none;}
 input[type="password"]{appearance: none;}
+# this is prone to bugs
+*/
+input { background-clip: padding-box;}
