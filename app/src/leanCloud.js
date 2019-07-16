@@ -80,7 +80,10 @@ export function signUp(username, password, email, successFn, errorFn) {
     alert("密码不能为空")
   } else if(!email) {
     alert("邮箱不能为空")
-  } else {
+  } else if(!/@/.test(email)){
+    alert("邮箱格式错误")
+  }
+  else {
     user.setUsername(username);
     user.setPassword(password);
     user.setEmail(email);
@@ -122,7 +125,15 @@ export function getCurrentUser(){
 }
 
 export function sendPasswordResetEmail(email, successFn, errorFn) {
-  AV.User.requestPasswordReset(email).then(()=> console.log(1), (error)=> alert(error));
+  if(!email) {
+    alert("邮箱不能为空")
+  } else if(!/@/.test(email)){
+    alert("邮箱格式错误")
+  } else {
+    AV.User.requestPasswordReset(email).then((response)=> {
+      successFn && successFn(response);
+    }, (error) => errorFn && errorFn());
+  }
 }
 
 

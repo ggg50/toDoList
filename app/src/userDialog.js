@@ -68,7 +68,9 @@ export default class UserDialog extends React.Component{
 
   resetPassword(e){
     e.preventDefault();
-    sendPasswordResetEmail(this.state.formData.email);
+    let success = ()=> {alert("邮件已发送，请在邮箱中查看并修改密码")};
+    let error = (error) => {alert(error)};
+    sendPasswordResetEmail(this.state.formData.email, success, error);
   };
 
   returnToSignIn() {
