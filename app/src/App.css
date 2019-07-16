@@ -19,6 +19,7 @@ button:focus {
   min-height: 320px;
   min-width: 440px;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
+  position: relative;
 }
 
 .App header {
@@ -32,6 +33,9 @@ button:focus {
    overflow: hidden;
    margin-left: 20px;
    cursor: pointer;
+   position: absolute;
+   right: 60px;
+   top: 40px;
 }
 
 #root{
