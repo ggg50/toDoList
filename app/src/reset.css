@@ -11,4 +11,4 @@ a{ color: inherit;}
 
 input:focus { outline: none;}
 
-input[type=text]  {appearance: none;}
+input{appearance: none;}
