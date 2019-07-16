@@ -17,7 +17,6 @@ class App extends React.Component{
       user: getCurrentUser() || {},
       newTodo: "",
       todoList: []
-      // todoList: localStore.load("todoList") || []
     }
 
     let user = getCurrentUser;
@@ -115,10 +114,6 @@ class App extends React.Component{
       newTodo: e.target.value,
       todoList: this.state.todoList
     })
-  }
-
-  componentDidUpdate(){
-    // localStore.save("todoList", this.state.todoList);
   }
 }
 
