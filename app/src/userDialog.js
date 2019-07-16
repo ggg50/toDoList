@@ -44,7 +44,7 @@ export default class UserDialog extends React.Component{
     e.preventDefault();
     let {username, password} = this.state.formData;
     let success = (user) => {
-      this.props.onSignUp.call(null, user);
+      this.props.onSignIn.call(null, user);
     };
     let error = (error) => {
       console.log(error);

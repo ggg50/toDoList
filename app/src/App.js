@@ -17,17 +17,13 @@ class App extends React.Component{
       user: getCurrentUser() || {},
       newTodo: "",
       todoList: []
-    }
+    };
 
     let user = getCurrentUser;
     if(user) {
-      TodoModel.getByUser(user, todos => {
-        let stateCopy = JSON.parse(JSON.stringify(this.state));
-        stateCopy.todoList = todos;
-        this.setState(stateCopy);
-      })
+      this.getUserTodoLists();
     }
-  }
+  };
   render(){
     let todos = this.state.todoList
     .filter(todo => !todo.deleted)
@@ -53,23 +49,34 @@ class App extends React.Component{
         </header>
         <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         <ul className="todoList">{todos}</ul>
-        {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)} onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
+        {this.state.user.id ? null : <UserDialog
+          onSignUp={this.onSignUpOrSignIn.bind(this)}
+          onSignIn={(user)=>{this.onSignUpOrSignIn.bind(this).call(null, user); this.getUserTodoLists.bind(this).call(null, user)}}/>}
       </div>
     )
+  };
+
+  getUserTodoLists(user) {
+    TodoModel.getByUser(user, todos => {
+      let stateCopy = JSON.parse(JSON.stringify(this.state));
+      stateCopy.todoList = todos;
+      this.setState(stateCopy);
+    });
   }
 
+
   onSignUpOrSignIn(user) {
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
-    stateCopy.user = user
-    this.setState(stateCopy)
-  }
+    let stateCopy = JSON.parse(JSON.stringify(this.state));
+    stateCopy.user = user;
+    this.setState(stateCopy);
+  };
 
   userSignOut() {
     signOut();
     let stateCopy = JSON.parse(JSON.stringify(this.state));
     stateCopy.user = {};
     this.setState(stateCopy);
-  }
+  };
 
   addTodo(e) {
     let newTodo = {
@@ -89,7 +96,7 @@ class App extends React.Component{
       console.log(error);
     })
 
-  }
+  };
 
   toggle(e, todo) {
     let oldStatus = todo.status;
@@ -101,20 +108,20 @@ class App extends React.Component{
       this.setState(this.state);
     })
 
-  }
+  };
 
   delete(e, todo) {
     TodoModel.destroy(todo.id, ()=> {
       todo.deleted = true;
       this.setState(this.state);
     })
-  }
+  };
   changeTitle(e, todoItem) {
     this.setState({
       newTodo: e.target.value,
       todoList: this.state.todoList
     })
-  }
+  };
 }
 
 ReactDOM.render(<App />, document.querySelector("#root"));
