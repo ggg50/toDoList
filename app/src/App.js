@@ -37,8 +37,9 @@ class App extends React.Component{
     let useTag = ''
 
     return (
-
       <div className="App">
+        <div className="backPage1"></div>
+        <div className="backPage2"></div>
         <header>
           <h1>{this.state.user.username || "我"}的待办</h1>
           {this.state.user.id ? <span onClick={this.userSignOut.bind(this)}>

@@ -12,3 +12,6 @@ button:focus { outline: none;}
 #root{ display:flex; justify-content: center; min-height: 100vh;}
 
 h1 { display: inline; margin-bottom: 30px;}
+
+.App .backPage1, .App .backPage2 { position: absolute; z-index: -1; width: 100%; height: 100%; left: 5px; top: 5px; border-radius: 4px; background-color: #ffffff; box-shadow: 0 0 1em hsla(0,0%,0%,0.15) }
+.App .backPage1 { left: 10px; top: 10px;}
