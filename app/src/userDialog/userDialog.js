@@ -1,6 +1,6 @@
 import React from 'react';
-import {signUp, signIn, sendPasswordResetEmail} from './leanCloud';
-import ForgotPassword from './forgotPasswordForm';
+import {signUp, signIn, sendPasswordResetEmail} from '../leanCloud';
+import ForgotPassword from '../todoPage/forgotPasswordForm';
 import SignInOrSignUp from './signInOrSignUp'
 import './userDialog.css';
 
