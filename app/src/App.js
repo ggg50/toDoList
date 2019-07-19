@@ -24,8 +24,9 @@ class App extends React.Component{
       this.getUserTodoLists();
     }
 
-    this.sound = new Audio("./sound.mp3");
-    this.sound.volume = 0.3;
+    // this.sound = new Audio("./sound.mp3");
+    // this.sound.volume = 0.3;
+    // setInterval(()=>{this.sound.play();},1000);
   };
   render(){
     let todos = this.state.todoList
@@ -46,7 +47,7 @@ class App extends React.Component{
         <header>
           <h1>{this.state.user.username || "我"}的待办</h1>
           {this.state.user.id ? <span onClick={this.userSignOut.bind(this)}>
-            <svg class="icon" aria-hidden="true">
+            <svg className="icon" aria-hidden="true">
               <use xlinkHref="#icon-logout"></use>
             </svg>
           </span> : null}

@@ -8,10 +8,10 @@ export default class ForgotPassword extends React.Component{
         <form className="forgotPassword" onSubmit={this.props.onSubmit}>
           <div className="inputWrapper">
             <div className="iconWrapper">
-              <svg class="icon" aria-hidden="true">
+              <svg className="icon" aria-hidden="true">
                 <use xlinkHref="#icon-youxiang1"></use>
               </svg>
-              <svg class="icon" aria-hidden="true">
+              <svg className="icon" aria-hidden="true">
                 <use xlinkHref="#icon-fs-line"></use>
               </svg>
             </div>

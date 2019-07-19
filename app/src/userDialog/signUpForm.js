@@ -6,10 +6,10 @@ export default function(props){
 
       <div className="inputWrapper">
         <div className="iconWrapper">
-          <svg class="icon" aria-hidden="true">
+          <svg className="icon" aria-hidden="true">
             <use xlinkHref="#icon-denglu-copy"></use>
           </svg>
-          <svg class="icon" aria-hidden="true">
+          <svg className="icon" aria-hidden="true">
             <use xlinkHref="#icon-fs-line"></use>
           </svg>
         </div>
@@ -18,10 +18,10 @@ export default function(props){
 
       <div className="inputWrapper">
         <div className="iconWrapper">
-          <svg class="icon" aria-hidden="true">
+          <svg className="icon" aria-hidden="true">
             <use xlinkHref="#icon-mima"></use>
           </svg>
-          <svg class="icon" aria-hidden="true">
+          <svg className="icon" aria-hidden="true">
             <use xlinkHref="#icon-fs-line"></use>
           </svg>
         </div>
@@ -30,10 +30,10 @@ export default function(props){
 
       <div className="inputWrapper">
         <div className="iconWrapper">
-          <svg class="icon" aria-hidden="true">
+          <svg className="icon" aria-hidden="true">
             <use xlinkHref="#icon-youxiang1"></use>
           </svg>
-          <svg class="icon" aria-hidden="true">
+          <svg className="icon" aria-hidden="true">
             <use xlinkHref="#icon-fs-line"></use>
           </svg>
         </div>
