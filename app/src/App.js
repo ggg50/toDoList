@@ -4,11 +4,14 @@ import TodoInput from './todoPage/todoInput';
 import TodoItem from './todoPage/todoItem';
 import UserDialog from './userDialog/userDialog';
 import {getCurrentUser, signOut, TodoModel} from './leanCloud';
+import ding from './ding.mp3';
 import 'normalize.css';
 import './reset.css';
 import './todoPage/todoItem.css';
 import './todoPage/todoInput.css';
 import './App.css';
+
+
 
 class App extends React.Component{
   constructor(props){
@@ -24,10 +27,10 @@ class App extends React.Component{
       this.getUserTodoLists();
     }
 
-    // this.sound = new Audio("./sound.mp3");
-    // this.sound.volume = 0.3;
-    // setInterval(()=>{this.sound.play();},1000);
+    this.sound = new Audio(ding);
+    this.sound.volume = 0.05;
   };
+
   render(){
     let todos = this.state.todoList
     .filter(todo => !todo.deleted)
@@ -107,9 +110,7 @@ class App extends React.Component{
     let oldStatus = todo.status;
     todo.status = todo.status === "completed" ? "uncomplete" : "completed";
     TodoModel.update(todo, ()=> {
-      // if(todo.status === "completed"){this.sound.play(); console.log(111)};
-      // console.log(this.sound);
-      // this.sound.play();
+      if(todo.status === "completed"){this.sound.play()};
       this.setState(this.state);
     }, ()=>{
       todo.status = oldStatus;
