@@ -110,7 +110,10 @@ class App extends React.Component{
     let oldStatus = todo.status;
     todo.status = todo.status === "completed" ? "uncomplete" : "completed";
     TodoModel.update(todo, ()=> {
-      if(todo.status === "completed"){this.sound.play()};
+      if(todo.status === "completed"){
+        this.sound.currentTime = 0;
+        this.sound.play();
+      };
       this.setState(this.state);
     }, ()=>{
       todo.status = oldStatus;
